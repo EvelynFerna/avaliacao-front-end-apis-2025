@@ -1,4 +1,3 @@
-
 * {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,38 +5,39 @@
   box-sizing: border-box;
 }
 
-
 :root {
-  --p1: #001f3f;   
-  --p2: #8fc1ec;   
-  --p3: #ffffff;   
-  --p4: #ffffff;   
+  --azul-escuro: #001f3f;
+  --azul: #8fc1ec;
+  --azul-claro: #e6f2fb;
+  --branco: #ffffff;
   --texto: #333333;
   --cinza: #888888;
+  --sombra: rgba(0, 0, 0, 0.1);
+  --sombra-forte: rgba(0, 0, 0, 0.2);
 }
+
 body {
-  background-color: var(--p3);
+  background-color: var(--azul-claro);
   color: var(--texto);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   width: 100vw;
   height: 100vh;
 }
 
+
 header, footer {
   width: 100%;
-  background-color: var(--p2);
-  color: var(--p4);
-  text-align: center;
+  background-color: var(--azul);
+  color: var(--branco);
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 8vh;
   padding: 0 20px;
   font-weight: bold;
+  box-shadow: 0 2px 4px var(--sombra);
 }
 
 main {
@@ -47,66 +47,72 @@ main {
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   justify-content: center;
   gap: 20px;
 }
 
 form {
-  background-color: var(--p4);
+  background-color: var(--branco);
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px var(--sombra);
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 15px;
   max-width: 350px;
   width: 100%;
   margin: auto;
 }
 
-input {
+input, textarea {
   padding: 12px;
-  border: 1px solid var(--p2);
+  border: 1px solid var(--azul);
   border-radius: 8px;
   width: 100%;
   font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--azul-escuro);
 }
 
 button {
-  background-color: var(--p2);
-  color: var(--p4);
+  background-color: var(--azul);
+  color: var(--branco);
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-  background-color: var(--p1);
+  background-color: var(--azul-escuro);
+  transform: scale(1.02);
 }
 
 .post {
-  background-color: var(--p4);
-  border: 1px solid var(--p2);
+  background-color: var(--branco);
+  border: 1px solid var(--azul);
   border-radius: 10px;
   padding: 20px;
   width: 320px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px var(--sombra);
+  transition: transform 0.3s ease, box-shadow 0.3s;
 }
 
 .post:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--sombra-forte);
 }
 
 .post h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: var(--p1);
+  color: var(--azul-escuro);
 }
 
 .post p {
@@ -126,9 +132,8 @@ footer input[type="text"] {
   width: 60%;
   max-width: 400px;
   border-radius: 8px;
-  border: 1px solid var(--p2);
+  border: 1px solid var(--azul);
   font-size: 1rem;
-  margin: auto;
 }
 
 .modal {
@@ -145,20 +150,20 @@ footer input[type="text"] {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 .janela {
-  background-color: var(--p4);
+  background-color: var(--branco);
   padding: 30px;
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px var(--sombra-forte);
 }
 
 .janela h2 {
-  color: var(--p2);
+  color: var(--azul);
   margin-bottom: 15px;
 }
 
@@ -172,3 +177,38 @@ footer input[type="text"] {
   margin-top: 20px;
   width: 100%;
 }
+
+
+@media (max-width: 600px) {
+  header, footer {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+  }
+
+  footer input[type="text"] {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  main {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .post {
+    width: 100%;
+  }
+
+}
+video.bg-video{
+    width: 100%;
+    height: 100%;
+    top: 0px;left: 0px; 
+    position: fixed;
+    object-fit: cover;
+    z-index: -1;
+    min-width: 90%;
+    min-width: 90px;
+ }
