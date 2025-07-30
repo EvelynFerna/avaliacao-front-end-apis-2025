@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Posts</title>
-  <link rel="stylesheet" href="../styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.css">
+    <title>Login Posts</title>
 </head>
+
 <body>
-  <button class="logout-button">Sair</button>
-  <h1>Posts</h1>
-  <input type="text" id="search" placeholder="Buscar por título...">
-  <div id="posts-container"></div>
-  <div id="modal" style="display:none">
-    <h2 id="modal-title"></h2>
-    <p id="modal-body"></p>
-    <button onclick="closeModal()">Fechar</button>
-  </div>
-  <script src="../scripts/posts.js"></script>
+    <header>
+        <h1>Posts</h1>
+        <button onclick="sair()">Sair</button>
+    </header>
+    <main></main>
+    <footer>
+        <input type="text" placeholder="Buscar posts" onkeyup="buscarPosts(this.value)">
+    </footer>
+    <section id="modal" class="modal oculto">
+        <div class="janela">
+            <h2>Detalhes do Post</h2>
+            <div id="post-details"></div>
+            <button onclick="modal.classList.add('oculto')">Fechar</button>
+        </div>
+    </section>
 </body>
-</html> 
+<script src="../scripts/posts.js"></script>
+
+</html>
